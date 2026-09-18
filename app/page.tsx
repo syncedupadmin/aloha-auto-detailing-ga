@@ -1,7 +1,6 @@
 import Image from "next/image";
-
-const bookingUrl = "https://app.urable.com/virtual-shop/5KX6MhF9GzY0CymxBlHG";
-const phone = "tel:+14702156141";
+import Link from "next/link";
+import { bookingUrl, phone, SiteFooter, SiteHeader } from "./site-chrome";
 
 const services = [
   ["Interior reset", "Vacuuming, shampoo and extraction, surfaces, glass and the details that make the cabin feel fresh again."],
@@ -13,12 +12,7 @@ const services = [
 export default function Home() {
   return <main>
     <a className="skip" href="#content">Skip to content</a>
-    <header className="nav" aria-label="Primary navigation">
-      <a className="brand" href="#top" aria-label="Aloha Auto Detailing home"><Image className="brand-logo" src="/images/aloha-02.webp" alt="Aloha Mobile Detailing" width={300} height={300} priority /></a>
-      <nav className="desktop-nav"><a href="#services">Services</a><a href="#work">Our work</a><a href="#area">Service area</a></nav>
-      <a className="nav-call" href={phone}>Call 470-215-6141</a>
-      <details className="mobile-menu"><summary aria-label="Open navigation">Menu</summary><div><a href="#services">Services</a><a href="#work">Our work</a><a href="#area">Service area</a><a href={phone}>Call us</a></div></details>
-    </header>
+    <SiteHeader overlay />
 
     <section className="hero" id="top">
       <Image className="hero-image" src="/images/aloha-03.webp" alt="Freshly detailed white pickup truck in Peachtree City" fill priority sizes="100vw" />
@@ -40,7 +34,7 @@ export default function Home() {
 
       <section className="services" id="services">
         <div className="services-head"><p className="section-index">02 / Services</p><h2>Choose the care<br/>your vehicle needs.</h2></div>
-        <div className="service-list">{services.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p><a href={bookingUrl} aria-label={`Book ${title}`}>Explore & book <span aria-hidden="true">↗</span></a></article>)}</div>
+        <div className="service-list">{services.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p><Link href={`/services#service-${index + 1}`} aria-label={`Explore ${title}`}>Explore service <span aria-hidden="true">↗</span></Link></article>)}</div>
       </section>
 
       <section className="work" id="work">
@@ -62,6 +56,6 @@ export default function Home() {
       <section className="closing"><p className="eyebrow">Your driveway. A better finish.</p><h2>Give your car<br/>the Aloha treatment.</h2><div className="actions"><a className="button primary" href={bookingUrl}>Book online <span aria-hidden="true">↗</span></a><a className="button darkline" href={phone}>Call 470-215-6141</a></div></section>
     </div>
 
-    <footer><a className="brand footer-brand" href="#top"><Image className="brand-logo" src="/images/aloha-02.webp" alt="Aloha Mobile Detailing" width={300} height={300} /></a><div><p>Mobile auto detailing</p><p>Peachtree City, Georgia</p></div><div className="footer-links"><a href={bookingUrl}>Book</a><a href={phone}>Call</a><a href="mailto:alohadetail.team@gmail.com">Email</a></div><a className="powered" href="https://syncedupsolutions.com">Powered by SyncedUp</a></footer>
+    <SiteFooter />
   </main>;
 }

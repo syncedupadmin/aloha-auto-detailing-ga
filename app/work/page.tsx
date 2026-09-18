@@ -1,0 +1,8 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import { bookingUrl, SiteFooter, SiteHeader } from "../site-chrome";
+
+export const metadata: Metadata = { title: "Detailing Work | Aloha Auto Detailing", description: "A look at vehicles and detailing work featured by Aloha Auto Detailing in the Peachtree City area.", alternates: { canonical: "/work" } };
+
+const photos = [["aloha-06.webp","Detailer polishing a black SUV under inspection lights"],["aloha-04.webp","Detailed vehicles in a Peachtree City driveway"],["aloha-03.webp","Detailed white pickup truck"],["aloha-08.webp","Vehicle finish featured by Aloha Auto Detailing"],["aloha-01.webp","Aloha Auto Detailing vehicle-care work"],["aloha-07.webp","Mobile detailing work on a customer vehicle"]] as const;
+export default function WorkPage(){return <main><a className="skip" href="#main">Skip to content</a><SiteHeader /><section className="gallery-intro" id="main"><p className="eyebrow">From Aloha’s current site</p><h1>Real vehicles.<br/><span>Real local work.</span></h1><p>These images are drawn from Aloha Auto Detailing’s own current website—not synthetic portfolio filler.</p></section><section className="gallery-grid">{photos.map(([src,alt],i)=><figure key={src} className={`gallery-item gallery-${i+1}`}><Image src={`/images/${src}`} alt={alt} fill sizes="(max-width:700px) 100vw, 50vw" /></figure>)}</section><section className="decision-band dark"><p className="eyebrow">Ready for your vehicle?</p><h2>See the current menu<br/>and choose a time.</h2><a className="button primary" href={bookingUrl}>View services & book ↗</a></section><SiteFooter /></main>}
