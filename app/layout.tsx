@@ -1,8 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import { Bebas_Neue, Manrope } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 
-const display = Bebas_Neue({ weight: "400", subsets: ["latin"], variable: "--font-display" });
 const body = Manrope({ subsets: ["latin"], variable: "--font-body" });
 const siteUrl = "https://aloha-auto-detailing-ga.vercel.app";
 
@@ -25,5 +24,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en" className={`${display.variable} ${body.variable}`}><body>{children}</body></html>;
+  return <html lang="en" className={body.variable}><body>{children}</body></html>;
 }

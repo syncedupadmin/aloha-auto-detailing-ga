@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { bookingUrl, phone, SiteFooter, SiteHeader } from "./site-chrome";
+import { bookingUrl, phone, text, SiteFooter, SiteHeader } from "./site-chrome";
 
 const services = [
   ["Interior reset", "Vacuuming, shampoo and extraction, surfaces, glass and the details that make the cabin feel fresh again."],
@@ -15,15 +15,15 @@ export default function Home() {
     <SiteHeader overlay />
 
     <section className="hero" id="top">
-      <Image className="hero-image" src="/images/aloha-03.webp" alt="Freshly detailed white pickup truck in Peachtree City" fill priority sizes="100vw" />
+      <Image className="hero-image" src="/images/aloha-06.webp" alt="Aloha Auto Detailing polishing a vehicle under inspection lights" fill priority sizes="100vw" />
       <div className="hero-shade" />
       <div className="hero-content">
         <p className="eyebrow">Mobile detailing · Peachtree City, GA</p>
-        <h1>Your car.<br/><span>Cared for.</span></h1>
-        <p className="hero-copy">Professional detailing that comes to your driveway—interior refreshes, full details, paint correction and ceramic protection.</p>
-        <div className="actions"><a className="button primary" href={bookingUrl}>View services & book <span aria-hidden="true">↗</span></a><a className="button ghost" href={phone}>Call or text</a></div>
+        <h1>Expert detailing.<br/>At your driveway.</h1>
+        <p className="hero-copy">Mobile interior and exterior detailing, paint correction and ceramic protection around Peachtree City.</p>
+        <div className="actions"><a className="button primary" href={bookingUrl}>View services & book <span aria-hidden="true">↗</span></a><a className="button ghost" href={phone}>Call</a><a className="button ghost" href={text}>Text</a></div>
       </div>
-      <div className="hero-note"><span>Convenience, without compromise.</span><small>Booking available online 24/7</small></div>
+      <div className="hero-note"><span>Mobile service by appointment</span><small>Peachtree City · Newnan · Fayetteville</small></div>
     </section>
 
     <div id="content">
